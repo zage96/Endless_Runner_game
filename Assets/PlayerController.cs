@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
     void CastMagic() {
         magic.transform.position = magicStartPos.position;
         magic.SetActive(true);
-        mRb.AddForce(this.transform.forward * 4000);
+        mRb.AddForce(this.transform.forward * 6000);
         Invoke("KillMagic", 1);
     }
 
