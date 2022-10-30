@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2290248497293791825}
   - component: {fileID: 574269156666190758}
   - component: {fileID: 4276248149042349864}
+  - component: {fileID: 108059573806668633}
   m_Layer: 0
   m_Name: WallExplosion
   m_TagString: Untagged
@@ -116,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4880,3 +4881,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &108059573806668633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385580982856234903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1357e1f23579e4b1d8d69d4fc5c70e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

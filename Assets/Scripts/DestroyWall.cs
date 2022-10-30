@@ -8,6 +8,7 @@ public class DestroyWall : MonoBehaviour
     List<Rigidbody> bricksRBs = new List<Rigidbody>();
     List<Vector3> positions = new List<Vector3>();
     List<Quaternion> rotations = new List<Quaternion>();
+    public GameObject explosion;
 
     Collider col;
 
@@ -38,6 +39,8 @@ public class DestroyWall : MonoBehaviour
     {
         if (other.gameObject.tag == "Spell")
         {
+            GameObject obj = Instantiate(explosion, other.contacts[0].point,Quaternion.identity);
+            Destroy(obj, 2.5f);
             col.enabled = false;
             foreach (Rigidbody r in bricksRBs)
                 r.isKinematic = false;

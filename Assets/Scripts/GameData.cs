@@ -9,7 +9,6 @@ public class GameData : MonoBehaviour
 {
 
     public static GameData singleton;
-    //public Text scoreText = null;
     public TMP_Text scoreText = null;
     int score = 0;
 
