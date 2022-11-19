@@ -44,6 +44,7 @@ public class DestroyWall : MonoBehaviour
             col.enabled = false;
             foreach (Rigidbody r in bricksRBs)
                 r.isKinematic = false;
+            PlayerController.sfx[5].Play();
         }
     }
 }

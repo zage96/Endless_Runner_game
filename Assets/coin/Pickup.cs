@@ -15,7 +15,7 @@ public class Pickup : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             GameData.singleton.UpdateScore(10);
-            
+            PlayerController.sfx[1].Play();
 
             foreach(MeshRenderer m in mrs)
             {

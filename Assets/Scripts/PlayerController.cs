@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     public static GameObject player;
     public static GameObject currentPlatform;
+    public static AudioSource[] sfx;
+
     bool canTurn = false;
     Vector3 startPosition;
     public static bool isDead = false;
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour {
         if ((other.gameObject.tag == "Fire" || other.gameObject.tag == "Wall")&& !isDead) {
             anim.SetTrigger("isDead");
             isDead = true;
+            PlayerController.sfx[6].Play();
             livesLeft--;
             PlayerPrefs.SetInt("lives", livesLeft);
             if(livesLeft > 0)
@@ -75,7 +78,7 @@ public class PlayerController : MonoBehaviour {
         anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         mRb = magic.GetComponent<Rigidbody>();
-
+        sfx = GameObject.FindWithTag("gamedata").GetComponentsInChildren<AudioSource>();
         
         if (PlayerPrefs.HasKey("highscore"))
         {
@@ -103,11 +106,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void PlayMagicSound()
+    {
+        PlayerController.sfx[7].Play();
+    }
+
+
     void CastMagic() {
         magic.transform.position = magicStartPos.position;
         magic.SetActive(true);
         mRb.AddForce(this.transform.forward * 6000);
         Invoke("KillMagic", 1);
+        
     }
 
     void KillMagic() {
@@ -136,6 +146,18 @@ public class PlayerController : MonoBehaviour {
         anim.SetBool("isMagic", false);
     }
 
+    public void FootStep1()
+    {
+        PlayerController.sfx[3].Play();
+    }
+
+    public void FootStep2()
+    {
+        PlayerController.sfx[4].Play();
+    }
+
+
+
     // Update is called once per frame
     void Update() {
         if (PlayerController.isDead) return;
@@ -143,6 +165,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && anim.GetBool("isMagic") == false) {
             anim.SetBool("isJumping", true);
             rb.AddForce(Vector3.up * 200);
+            PlayerController.sfx[2].Play();
 
         } else if (Input.GetKeyDown(KeyCode.M) && anim.GetBool("isJumping") == false) {
             anim.SetBool("isMagic", true);
