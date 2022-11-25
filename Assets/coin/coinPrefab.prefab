@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f34814766cc5e4685170fc2f64e0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePrefab: {fileID: 6380599312511608857, guid: 4a6ae22225684a546bbbfc29e7f8eae5, type: 3}
+  particlePrefab: {fileID: 8549265464821584327, guid: ac5a0dae84086d54f8a698a345fcd61d, type: 3}
 --- !u!1 &2447955649610363329
 GameObject:
   m_ObjectHideFlags: 0

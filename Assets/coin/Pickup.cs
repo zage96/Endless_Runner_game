@@ -5,9 +5,15 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     MeshRenderer[] mrs;
+    public GameObject scorePrefab;
+    public GameObject particlePrefab;
+    GameObject canvas;
+
+
     void Start()
     {
         mrs = this.GetComponentsInChildren<MeshRenderer>();
+        canvas = GameObject.Find("Canvas");
     }
 
     void OnTriggerEnter(Collider col)
@@ -16,7 +22,15 @@ public class Pickup : MonoBehaviour
         {
             GameData.singleton.UpdateScore(10);
             PlayerController.sfx[1].Play();
+            GameObject scoreText = Instantiate(scorePrefab);
+            //scoreText.transform.parent = canvas.transform;
+            scoreText.transform.SetParent(canvas.transform);
 
+            GameObject pE = Instantiate(particlePrefab, this.transform.position, Quaternion.identity);
+            Destroy(pE, 1);
+
+            Vector3 screenPoint = Camera.main.WorldToScreenPoint(this.transform.position);
+            scoreText.transform.position = screenPoint;
             foreach(MeshRenderer m in mrs)
             {
                 m.enabled = false;
