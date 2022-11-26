@@ -24,11 +24,13 @@ public class PlayerController : MonoBehaviour {
 
     //@@public delegate void playerDied();
     //@@public static event playerDied OnPlayerDeath;
-    //@@bool test = false;
 
     public GameObject magic;
     public Transform magicStartPos;
     Rigidbody mRb;
+
+
+    bool falling = false;
 
     void RestartGame()
     {
@@ -36,14 +38,17 @@ public class PlayerController : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision other) {
-        if ((other.gameObject.tag == "Fire" || other.gameObject.tag == "Wall")&& !isDead) {
-            anim.SetTrigger("isDead");
+        if ((falling || other.gameObject.tag == "Fire" || other.gameObject.tag == "Wall")&& !isDead) {
+            if (falling)
+                anim.SetTrigger("isFalling");
+            else
+                anim.SetTrigger("isDead");
             isDead = true;
             PlayerController.sfx[6].Play();
             livesLeft--;
             PlayerPrefs.SetInt("lives", livesLeft);
             if(livesLeft > 0)
-                Invoke("RestartGame", 1);
+                Invoke("RestartGame", 2);
             else
             {
                 icons[0].texture = deadIcon;
@@ -67,8 +72,7 @@ public class PlayerController : MonoBehaviour {
                 }
 
             }
-            //@@if(test)
-            //@@    OnPlayerDeath();
+
         } else
             currentPlatform = other.gameObject;
     }
@@ -161,6 +165,15 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (PlayerController.isDead) return;
+
+        if(currentPlatform != null)
+        {
+            if(this.transform.position.y < (currentPlatform.transform.position.y - 5))
+            {
+                falling = true;
+                OnCollisionEnter(null);
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && anim.GetBool("isMagic") == false) {
             anim.SetBool("isJumping", true);
