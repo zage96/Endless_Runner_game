@@ -6,11 +6,12 @@ This project consists of an endless runner type game coded in Unity. The game co
 There are coins that appear on random platforms that increase the current score. There are 3 lives per game, which are presented on top of the screen, as well as the current score.
 
 The game starts with a menu which allows starting the game, showing the controls, changing the SFX and music levels, and there is an option to see the previous and top score.
-![Menu](Screen_shots\Menu.png)
 
-![Runner1](Screen_shots\Runner1.png)
+![Menu](https://github.com/zage96/Endless_Runner_game/tree/main/Screen_shots\Menu.png)
 
-![Runner2](Screen_shots\Runner2.png)
+![Runner1](https://github.com/zage96/Endless_Runner_game/tree/main/Screen_shots\Runner1.png)
+
+![Runner2](https://github.com/zage96/Endless_Runner_game/tree/main/Screen_shots\Runner2.png)
 ## Specifications
 **Unity Editor Version:** 2021.3.5f1
 
