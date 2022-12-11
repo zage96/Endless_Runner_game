@@ -7,11 +7,10 @@ There are coins that appear on random platforms that increase the current score.
 
 The game starts with a menu which allows starting the game, showing the controls, changing the SFX and music levels, and there is an option to see the previous and top score.
 
-![Menu](https://github.com/zage96/Endless_Runner_game/tree/main/Screen_shots\Menu.png)
+![Menu](https://user-images.githubusercontent.com/50153175/206931620-b404192c-767f-47d6-8bec-c71f651ec972.png)
 
-![Runner1](https://github.com/zage96/Endless_Runner_game/tree/main/Screen_shots\Runner1.png)
+![Runner1](https://user-images.githubusercontent.com/50153175/206931628-b9b4fa5a-d76f-4325-8b5a-bd75906d74da.png) ![Runner2](https://user-images.githubusercontent.com/50153175/206931632-ea09a569-798c-44c8-997b-2dd275d2ee93.png)
 
-![Runner2](https://github.com/zage96/Endless_Runner_game/tree/main/Screen_shots\Runner2.png)
 ## Specifications
 **Unity Editor Version:** 2021.3.5f1
 
